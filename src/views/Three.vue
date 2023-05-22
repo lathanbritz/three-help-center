@@ -3,16 +3,23 @@
         <div class="container-fluid py-5">
             <h1 class="display-5 fw-bold">Launch app</h1>
             <p class="col-md-8 fs-4">Open the app in XUMM</p>
-            <a class="btn btn-primary" href="https://xumm.app/detect/xapp:lathan.xapp" target="_bank">open xumm</a>
+            <a class="btn btn-primary disabled" href="https://xumm.app/detect/xapp:lathan.xapp" target="_bank">open xumm</a>
         </div>
     </div>
     <div class="row justify-content-md-center">
+        <div class="messages">
+            <div class="alert alert-danger" role="alert">
+                threexrp.dev has been taken offline for a period. It will be brought back once the graph tool has been completed.
+            </div>
+        </div>
+    </div>
+    <!-- <div class="row justify-content-md-center">
         <div class="messages">
             <div class="alert alert-primary" role="alert">
                 this xApp requires the use of the <a href="https://xumm.app" target="_blank">Xumm Wallet</a>
             </div>
         </div>
-    </div>
+    </div> -->
     <div class="container">
         <div class="row mb-5">
             <div class="col-12 col-md-6 mb-3 mb-md-0">
