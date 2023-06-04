@@ -2,8 +2,8 @@
     <div class="p-5 mb-4 bg-light rounded-3">
         <div class="container-fluid py-5">
             <h1 class="display-5 fw-bold">Launch app</h1>
-            <p class="col-md-8 fs-4">coming soon.. in dev</p>
-            <a class="btn btn-primary disabled" href="https://xumm.app/detect/xapp:lathan.multisig" target="_bank" aria-disabled="true">open xumm</a>
+            <p class="col-md-8 fs-4">Open the app in XUMM</p>
+            <a class="btn btn-primary" href="https://xumm.app/detect/xapp:lathan.multisig" target="_bank">open xumm</a>
         </div>
     </div>
     <div class="row justify-content-md-center">
