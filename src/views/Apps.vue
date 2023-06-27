@@ -13,24 +13,38 @@
         </div>
        <div class="col-md-6 mb-4">
             <div class="p-5 bg-light border rounded-3 mb-4">
-                <h2><span class="glyphicon" :class="isExchangeConnected('submission') ? 'one-fine-green-dot':'one-fine-red-dot'"></span> Submission Node</h2>
+                <h2><span class="glyphicon" :class="isExchangeConnected('submission') ? 'one-fine-green-dot':'one-fine-red-dot'"></span> Submission Node 1</h2>
                 <p class="mb-3">wss://node.panicbot.xyz</p>
                 <ul>
+                    <li>geo: Finland</li>
                     <li>ledger: {{ server['submission'].ledger }}</li>
                     <li>peers: {{ server['submission'].peers }}</li>
                     <li>state: {{ server['submission'].state }}</li>
                     <li>version: {{ server['submission'].build_version }}</li>
+                    <li>uptime: {{ server['submission'].uptime }}</li>
+                    <li>history: {{ server['submission'].complete_ledgers }}</li>
+                    <li>pubkey: {{ server['submission'].pubkey_node }}</li>
                 </ul>
-                
-                <small>
-                    The primary node used for all three's apps quering the XRPL. 
-                    A non data center node, so availablity is primary dependant on ISP provider.
-                </small>
+            </div>
+            <div class="p-5 bg-light border rounded-3 mb-4">
+                <h2><span class="glyphicon" :class="isExchangeConnected('submission') ? 'one-fine-green-dot':'one-fine-red-dot'"></span> Submission Node 2</h2>
+                <p class="mb-3">wss://node2.panicbot.xyz</p>
+                <ul>
+                    <li>geo: Chile</li>
+                    <li>ledger: {{ server['submission2'].ledger }}</li>
+                    <li>peers: {{ server['submission2'].peers }}</li>
+                    <li>state: {{ server['submission2'].state }}</li>
+                    <li>version: {{ server['submission2'].build_version }}</li>
+                    <li>uptime: {{ server['submission2'].uptime }}</li>
+                    <li>history: {{ server['submission2'].complete_ledgers }}</li>
+                    <li>pubkey: {{ server['submission2'].pubkey_node }}</li>
+                </ul>
             </div>
             <div class="p-5 bg-white border rounded-3">
                 <h2><span class="glyphicon" :class="isExchangeConnected('validator') ? 'one-fine-green-dot':'one-fine-red-dot'"></span> Validator Node</h2>
                 <p class="mb-3">https://panicbot.app</p>
                 <ul>
+                    <li>pubkey_node: {{ server['validator'].pubkey_node }}</li>
                     <li>ledger: {{ server['validator'].ledger }}</li>
                     <li>peers: {{ server['validator'].peers }}</li>
                     <li>state: {{ server['validator'].state }}</li>
@@ -56,10 +70,20 @@
         data() {
             return {
                 submission: new XrplClient(import.meta.env.VITE_APP_SUBMISSION),
+                submission2: new XrplClient(import.meta.env.VITE_APP_SUBMISSION2),
                 validator: new XrplClient(import.meta.env.VITE_APP_VALIDATOR),
                 interval: null,
                 server: {
                     submission: {
+                        online: false,
+                        uptime: 0,
+                        peers: 0,
+                        ledger: null,
+                        state: '-',
+                        build_version: '',
+                        pubkey_node: ''
+                    },
+                    submission2: {
                         online: false,
                         uptime: 0,
                         peers: 0,
@@ -109,6 +133,20 @@
                     const ledger_result = await self.submission.send(request)
                     self.server['submission'].ledger = ledger_result?.ledger?.ledger_index
                 })
+                this.submission2.on('ledger', async (event) => {
+                    const request = {
+                        'id': 'xrpl-local',
+                        'command': 'ledger',
+                        'ledger_hash': event.ledger_hash,
+                        'ledger_index': "validated",
+                        'transactions': true,
+                        'expand': true,
+                        'owner_funds': true
+                    }
+                    //console.log('event.ledger_hash', event.ledger_hash)
+                    const ledger_result = await self.submission.send(request)
+                    self.server['submission2'].ledger = ledger_result?.ledger?.ledger_index
+                })
                 this.validator.on('ledger', async (event) => {
                     const request = {
                         'id': 'xrpl-local',
@@ -137,6 +175,19 @@
                 }
                 this.setServerState('submission', status, server_info.info)
             },
+            async submissionState2() {
+                let status = true
+
+                const server_info = await this.submission2.send({'id': 1, 'command': 'server_info'})
+                // console.log('submission state', server_info)
+                if ('error' in server_info) {
+                    status = false
+                }
+                if (server_info.info.server_state != 'full') {
+                    status = false
+                }
+                this.setServerState('submission2', status, server_info.info)
+            },
             async validatorState() {
                 let status = true
 
@@ -152,9 +203,12 @@
             },
             async isConnected() {
                 this.submissionState()
+                this.submissionState2()
                 this.validatorState()
             },
             setServerState(node, status = false, info) {
+                console.log('info', info)
+                this.server[node].complete_ledgers = info?.complete_ledgers.split('-')[1] - info?.complete_ledgers.split('-')[0]
                 this.server[node].online = status
                 this.server[node].peers = info?.peers
                 this.server[node].uptime = info?.uptime
