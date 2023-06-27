@@ -48,6 +48,7 @@
                     <li>ledger: {{ server['validator'].ledger }}</li>
                     <li>peers: {{ server['validator'].peers }}</li>
                     <li>state: {{ server['validator'].state }}</li>
+                    <li>uptime: {{ server['validator'].uptime }}</li>
                     <li>version: {{ server['validator'].build_version }}</li>
                 </ul>
                 
