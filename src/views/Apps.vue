@@ -144,6 +144,10 @@
                     self.server['submission2'].ledger = ledger_result?.ledger?.ledger_index
                 })
 
+                this.submission.send({
+                    'command': 'subscribe',
+                    'streams': ['validations']
+                })
                 this.submission.on('validation', async (validation) => {
                     if(validation.validation_public_key === 'nHBiXWRTwVeDCux4hXsD1AHg96paDtK8AALJ6cCy3UBCzF86h8VA') {
                         self.server['validator'].ledger = {
