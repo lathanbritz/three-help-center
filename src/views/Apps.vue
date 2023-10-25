@@ -95,7 +95,7 @@
                         ledger: null,
                         state: '-',
                         build_version: '',
-                        key: ''
+                        key: 'nHBiXWRTwVeDCux4hXsD1AHg96paDtK8AALJ6cCy3UBCzF86h8VA'
                     },
                 },
                 isLoading: true
@@ -149,13 +149,12 @@
                     'streams': ['validations']
                 })
                 this.submission.on('validation', async (validation) => {
-                    if(validation.validation_public_key === 'nHBiXWRTwVeDCux4hXsD1AHg96paDtK8AALJ6cCy3UBCzF86h8VA') {
-                        self.server['validator'].ledger = {
-                            key: 'nHBiXWRTwVeDCux4hXsD1AHg96paDtK8AALJ6cCy3UBCzF86h8VA',
-                            ledger: validation.ledger_index,
-                            online: true,
-                            state: (validation.full) ? 'full':'-',
-                            build_version: this.decodeServerVersion(validation.server_version)
+                    if(validation.validation_public_key === 'n94aSAP9QcYtmKxgCTxcv3xeD2cB6tuwH3mNDQzrjAQ5DTu7SfZi') {
+                        self.server['validator'].ledger = validation.ledger_index
+                        self.server['validator'].state = (validation.full) ? 'full':'-'
+                        self.server['validator'].online = true
+                        if ('server_version' in validation) {
+                            self.server['validator'].build_version = self.decodeServerVersion(validation.server_version)
                         }
                     }
                 })
@@ -186,13 +185,9 @@
                 }
                 this.setServerState('submission2', status, server_info.info)
             },
-            async validatorState() {
-                this.server['validator'].online
-            },
             async isConnected() {
                 this.submissionState()
                 this.submissionState2()
-                this.validatorState()
             },
             setServerState(node, status = false, info) {
                 console.log('info', info)
