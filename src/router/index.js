@@ -8,6 +8,7 @@ import Multisig from '../views/Multisig.vue'
 import Flush from '../views/Flush.vue'
 import Three from '../views/Three.vue'
 import XRPSwap from '../views/XRPSwap.vue'
+import DAOVote from '../views/DAOVote.vue'
 
 export const routes = [
     {
@@ -49,6 +50,12 @@ export const routes = [
         path: "/xrpswap",
         name: "XRPSwap",
         component: XRPSwap,
+        meta: { layout: "MainLayout" },
+    },
+    {
+        path: "/dao-vote",
+        name: "DAO Vote",
+        component: DAOVote,
         meta: { layout: "MainLayout" },
     }
 ]

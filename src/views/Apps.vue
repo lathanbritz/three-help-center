@@ -8,6 +8,7 @@
                     <router-link to="/flush" class="app-link col-6"><img class="rounded-3 m-2 img-fluid" src="https://xumm-cdn.imgix.net/app-logo/f652d302-c5de-4240-a2d8-44f9e84b85bf.png" /></router-link>
                     <router-link to="/multisig" class="app-link col-6"><img class="rounded-3 m-2 img-fluid" src="https://xumm-cdn.imgix.net/app-logo/0d755800-17eb-410e-9357-cb1485b22c40.png" /></router-link>
                     <router-link to="/xrpswap" class="app-link col-6"><img class="rounded-3 bg-white m-2 img-fluid" src="https://xumm-cdn.imgix.net/app-logo/b93593a4-5b07-4a80-8c01-779f3a097016.png" /></router-link>
+                    <router-link to="/dao-vote" class="app-link col-6"><img class="rounded-3 bg-white m-2 img-fluid" src="https://xumm-cdn.imgix.net/app-logo/9b350a64-d55c-4cc2-b5d7-e9e96b1c9a4a.png" /></router-link>
                 </div>
             </div>
         </div>
