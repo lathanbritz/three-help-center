@@ -95,7 +95,7 @@
             </div>
         </div>
         <hr/>
-        <div class="row mb-5">
+        <!-- <div class="row mb-5">
             <div class="col-12 col-md-6 bg-light rounded-3 align-self-md-center mb-3 mb-md-0">
                 <h2>Wallet and account</h2>
                 <p>Navigating via the wallet icon top right will bring you to your user screen. Here you can see if you have purchased the pro subscription, the address you are connected via as well as the network you are on. Fell free to connect via the tesnet as well, using a tesetnet wallet from one of the faucets. </p>
@@ -195,7 +195,7 @@
                 <p>Payment is handled via the advanced pathing option in the XRPL, letting you pay via any of the tokens available on the XRPL. You will need to have at leave $10 of any token to use it to as payment. If the XRPL finds any balances with at least that balance value you will find a button to pay via that token.</p>
             </div>
         </div>
-        <hr/>
+        <hr/> -->
     </div>
 </template>
 
