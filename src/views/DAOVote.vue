@@ -1,9 +1,9 @@
 <template>
     <div class="p-5 mb-4 bg-light rounded-3">
         <div class="container-fluid py-5">
-            <h1 class="display-5 fw-bold">App launching soon</h1>
+            <h1 class="display-5 fw-bold">Launch app</h1>
             <p class="col-md-8 fs-4">Open the app in XUMM</p>
-            <!-- <a class="btn btn-primary" href="https://xumm.app/detect/xapp:lathan.nftflush" disabled target="_bank">open xumm</a> -->
+            <a class="btn btn-primary" href="https://xumm.app/detect/xapp:lathan.dao-vote" disabled target="_bank">open xumm</a>
         </div>
     </div>
     <div class="row justify-content-md-center">
