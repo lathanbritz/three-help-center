@@ -31,7 +31,7 @@
                 <h2><span class="glyphicon" :class="isExchangeConnected('submission2') ? 'one-fine-green-dot':'one-fine-red-dot'"></span> Submission Node 2</h2>
                 <!-- <p class="mb-3">wss://node2.panicbot.xyz</p> -->
                 <ul>
-                    <li>geo: Chile</li>
+                    <li>geo: Finland</li>
                     <li>ledger: {{ server['submission2'].ledger }}</li>
                     <li>peers: {{ server['submission2'].peers }}</li>
                     <li>state: {{ server['submission2'].state }}</li>
