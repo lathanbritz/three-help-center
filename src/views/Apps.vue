@@ -48,7 +48,7 @@
                     <li>key: {{ server['validator'].key }}</li>
                     <li>ledger: {{ server['validator'].ledger }}</li>
                     <li>state: {{ server['validator'].state }}</li>
-                    <li>version: {{ server['validator'].build_version }}</li>
+                    <!-- <li>version: {{ server['validator'].build_version }}</li> -->
                 </ul>
                 
                 <small>
@@ -152,7 +152,7 @@
                 this.submission.on('validation', async (validation) => {
                     if(validation.validation_public_key === 'n94aSAP9QcYtmKxgCTxcv3xeD2cB6tuwH3mNDQzrjAQ5DTu7SfZi') {
                         self.server['validator'].ledger = validation.ledger_index
-                        self.server['validator'].state = (validation.full) ? 'full':'-'
+                        self.server['validator'].state = (validation.full) ? 'proposing':'-'
                         self.server['validator'].online = true
                         if ('server_version' in validation) {
                             self.server['validator'].build_version = self.decodeServerVersion(validation.server_version)
