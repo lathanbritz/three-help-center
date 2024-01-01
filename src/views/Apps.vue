@@ -52,7 +52,7 @@
                 </ul>
                 
                 <small>
-                    A well maintained Validator on the XRPL run by @ShortTheFomo.
+                    A well maintained Validator on the XRPL, in a private datacenter run by @ShortTheFomo.
                 </small>
             </div>
         </div>
