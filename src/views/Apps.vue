@@ -23,7 +23,7 @@
                     <li>state: {{ server['submission'].state }}</li>
                     <li>version: {{ server['submission'].build_version }}</li>
                     <li>uptime: {{ server['submission'].uptime }}</li>
-                    <li>history: {{ server['submission'].complete_ledgers }}</li>
+                    <li>history: {{ server['submission'].history }}</li>
                     <li>pubkey: {{ server['submission'].pubkey_node }}</li>
                 </ul>
             </div>
@@ -37,7 +37,7 @@
                     <li>state: {{ server['submission2'].state }}</li>
                     <li>version: {{ server['submission2'].build_version }}</li>
                     <li>uptime: {{ server['submission2'].uptime }}</li>
-                    <li>history: {{ server['submission2'].complete_ledgers }}</li>
+                    <li>history: {{ server['submission2'].history }}</li>
                     <li>pubkey: {{ server['submission2'].pubkey_node }}</li>
                 </ul>
             </div>
@@ -193,6 +193,7 @@
             setServerState(node, status = false, info) {
                 console.log('info', info)
                 this.server[node].complete_ledgers = info?.complete_ledgers.split('-')[1] - info?.complete_ledgers.split('-')[0]
+                this.server[node].history = info?.complete_ledgers
                 this.server[node].online = status
                 this.server[node].peers = info?.peers
                 this.server[node].uptime = info?.uptime
