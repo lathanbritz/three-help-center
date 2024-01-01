@@ -14,7 +14,7 @@
         </div>
        <div class="col-md-6 mb-4">
             <div class="p-5 bg-light border rounded-3 mb-4">
-                <h2><span class="glyphicon" :class="isExchangeConnected('submission') ? 'one-fine-green-dot':'one-fine-red-dot'"></span> Submission Node 1</h2>
+                <h2><span class="glyphicon" :class="isExchangeConnected('submission') ? 'one-fine-green-dot':'one-fine-red-dot'"></span> Pathing Node</h2>
                 <!-- <p class="mb-3">wss://node.panicbot.xyz</p> -->
                 <ul>
                     <li>geo: Finland</li>
@@ -28,7 +28,7 @@
                 </ul>
             </div>
             <div class="p-5 bg-light border rounded-3 mb-4">
-                <h2><span class="glyphicon" :class="isExchangeConnected('submission2') ? 'one-fine-green-dot':'one-fine-red-dot'"></span> Submission Node 2</h2>
+                <h2><span class="glyphicon" :class="isExchangeConnected('submission2') ? 'one-fine-green-dot':'one-fine-red-dot'"></span> Submission Node</h2>
                 <!-- <p class="mb-3">wss://node2.panicbot.xyz</p> -->
                 <ul>
                     <li>geo: Finland</li>
