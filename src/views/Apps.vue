@@ -12,50 +12,6 @@
                 </div>
             </div>
         </div>
-       <div class="col-md-6 mb-4">
-            <div class="p-5 bg-light border rounded-3 mb-4">
-                <h2><span class="glyphicon" :class="isExchangeConnected('submission') ? 'one-fine-green-dot':'one-fine-red-dot'"></span> Pathing Node</h2>
-                <!-- <p class="mb-3">wss://node.panicbot.xyz</p> -->
-                <ul>
-                    <li>geo: Finland</li>
-                    <li>ledger: {{ server['submission'].ledger }}</li>
-                    <li>peers: {{ server['submission'].peers }}</li>
-                    <li>state: {{ server['submission'].state }}</li>
-                    <li>version: {{ server['submission'].build_version }}</li>
-                    <li>uptime: {{ server['submission'].uptime }}</li>
-                    <li>history: {{ server['submission'].history }}</li>
-                    <li>pubkey: {{ server['submission'].pubkey_node }}</li>
-                </ul>
-            </div>
-            <div class="p-5 bg-light border rounded-3 mb-4">
-                <h2><span class="glyphicon" :class="isExchangeConnected('submission2') ? 'one-fine-green-dot':'one-fine-red-dot'"></span> Submission Node</h2>
-                <!-- <p class="mb-3">wss://node2.panicbot.xyz</p> -->
-                <ul>
-                    <li>geo: Finland</li>
-                    <li>ledger: {{ server['submission2'].ledger }}</li>
-                    <li>peers: {{ server['submission2'].peers }}</li>
-                    <li>state: {{ server['submission2'].state }}</li>
-                    <li>version: {{ server['submission2'].build_version }}</li>
-                    <li>uptime: {{ server['submission2'].uptime }}</li>
-                    <li>history: {{ server['submission2'].history }}</li>
-                    <li>pubkey: {{ server['submission2'].pubkey_node }}</li>
-                </ul>
-            </div>
-            <div class="p-5 bg-white border rounded-3">
-                <h2><span class="glyphicon" :class="isExchangeConnected('validator') ? 'one-fine-green-dot':'one-fine-red-dot'"></span> Validator Node</h2>
-                <p class="mb-3">https://panicbot.app</p>
-                <ul>
-                    <li>key: {{ server['validator'].key }}</li>
-                    <li>ledger: {{ server['validator'].ledger }}</li>
-                    <li>state: {{ server['validator'].state }}</li>
-                    <!-- <li>version: {{ server['validator'].build_version }}</li> -->
-                </ul>
-                
-                <small>
-                    A well maintained Validator on the XRPL, in a private datacenter run by @ShortTheFomo.
-                </small>
-            </div>
-        </div>
     </div>
 </template>
 
@@ -103,14 +59,14 @@
             }
         },
         async mounted() {
-            this.isConnected()
-            this.watchClose()
+            // this.isConnected()
+            // this.watchClose()
 
             this.isLoading = false
             const self = this
-            this.interval = setInterval(() => {
-                self.isConnected()
-            }, 10000)
+            // this.interval = setInterval(() => {
+            //     self.isConnected()
+            // }, 10000)
         },
         methods: {
             watchClose() {
