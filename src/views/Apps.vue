@@ -1,6 +1,6 @@
 <template>
     <div class="row align-items-md-stretch">
-        <div class="col-md-6 mb-4">
+        <div class="col-md-12 mb-4">
             <div class="h-100 p-5 text-white bg-dark rounded-3">
                 <h2 class="text-center">App support</h2>
                 <div class="row">
